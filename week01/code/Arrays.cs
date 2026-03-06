@@ -9,11 +9,13 @@ public static class Arrays
     public static double[] MultiplesOf(double number, int length)
     {
         // PLAN
-        // 1. Create a new array with the size equal to length.
-        // 2. Loop through each index in the array.
-        // 3. Multiply the number by (index + 1) to get each multiple.
-        // 4. Store each multiple in the array.
-        // 5. Return the completed array.
+        // 1. Create a new array that has exactly 'length' spaces.
+        // 2. Start a loop at index 0 and continue until the last index in the array.
+        // 3. For each index, calculate the multiple by multiplying 'number' by (index + 1).
+        //    This works because the first value should be 1 times the number, the second value
+        //    should be 2 times the number, and so on.
+        // 4. Store each calculated multiple into the matching position in the array.
+        // 5. After the loop is finished, return the completed array.
 
         double[] result = new double[length];
 
@@ -35,14 +37,14 @@ public static class Arrays
     public static void RotateListRight(List<int> data, int amount)
     {
         // PLAN
-        // 1. Find the position where the list should be split.
-        //    The split point is data.Count - amount.
-        // 2. Copy the last 'amount' items into a temporary list.
-        // 3. Copy the first part of the list into another temporary list.
-        // 4. Clear the original list.
-        // 5. Add the last part first, because those move to the front.
-        // 6. Add the first part after that.
-        // 7. The original list is now rotated to the right.
+        // 1. Figure out where the list should be split by subtracting amount from data.Count.
+        //    Everything after that split point will move to the front of the list.
+        // 2. Copy the last 'amount' values into a temporary list.
+        // 3. Copy the values from the beginning of the list up to the split point into a second temporary list.
+        // 4. Clear the original list because we are going to rebuild it in rotated order.
+        // 5. Add the values from the last part first, since rotating right moves those items to the front.
+        // 6. Add the values from the first part after that.
+        // 7. When both parts have been added back, the original list has been rotated to the right.
 
         int splitIndex = data.Count - amount;
 
